@@ -1,0 +1,4 @@
+.auth_btn{
+  width: 70%;
+  margin-top: 40rpx;
+}

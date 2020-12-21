@@ -1,0 +1,6 @@
+{
+    // "editor.codeActionsOnSave": null,
+    "less.compile": {
+        "outExt": ".wxss"
+    }
+}

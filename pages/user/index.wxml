@@ -1,0 +1,83 @@
+<!-- 上半部分 -->
+<view class="user_info_wrap">
+  <!-- 头像信息 -->
+  <view class="user_img_wrap" wx:if="{{userInfo.avatarUrl}}">
+    <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user_info">
+      <image class="user_icon" src="{{userInfo.avatarUrl}}"></image>
+      <view class="user_name">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <!-- 登录按钮 -->
+  <view class="user_btn" wx:else>
+    <navigator url="../login/index">登录</navigator>
+  </view> 
+</view>
+<!-- 下半部分详细信息 -->
+<view class="user_content">
+    <view class="user_main">
+      <!-- 历史足迹 -->
+      <view class="history_wrap">
+        <navigator class="his_nav">
+          <view class="his_num">0</view>
+          <view class="his_name">收藏店铺</view>
+        </navigator>
+        <navigator class="his_nav">
+          <view class="his_num">0</view>
+          <view class="his_name">收藏店铺</view>
+        </navigator>
+        <navigator class="his_nav">
+          <view class="his_num">0</view>
+          <view class="his_name">收藏店铺</view>
+        </navigator>
+        <navigator class="his_nav">
+          <view class="his_num">0</view>
+          <view class="his_name">收藏店铺</view>
+        </navigator>
+      </view>
+      <!-- 我的订单 -->
+      <view class="order_wrap">
+        <view class="order_title">我的订单</view>
+        <view class="order_content">
+          <navigator class="order_nav" url="../order/index?type=1">
+            <view class="iconfont icon-ding_dan"></view>  
+            <view class="order_name">全部订单</view>
+          </navigator>
+          <navigator class="order_nav" url="../order/index?type=2">
+            <view class="iconfont icon-fukuantongzhi"></view>  
+            <view class="order_name">待付款</view>
+          </navigator>
+          <navigator class="order_nav" url="../order/index?type=3">
+            <view class="iconfont icon-receipt-address"></view>  
+            <view class="order_name">待收货</view>
+          </navigator>
+          <navigator class="order_nav">
+            <view class="iconfont icon-tuihuotuikuan_dianpu"></view>  
+            <view class="order_name">退款/退货</view>
+          </navigator>
+        </view>
+      </view>
+
+      <!-- 收货地址 -->
+      <view class="address_wrap">
+        收货地址管理
+      </view>
+      <!-- 其他 -->
+      <view class="app_info_wrap">
+        <view class="app_info_item app_info_contact">
+          <text>联系客服</text>
+          <text>400-618-4000</text>
+        </view>
+        <view class="app_info_item">
+          <text>意见反馈</text>
+        </view>
+        <view class="app_info_item">
+          <text>关于我们</text>
+        </view>
+      </view>
+      <view class="recommend_wrap">
+        把应用推荐给其他人
+      </view>
+
+    </view>
+  </view>
