@@ -36,7 +36,8 @@ Page({
 
   onLoad: function (options) {
     //获取参数cid
-    this.queryParams.cid = options.cid;
+    this.queryParams.cid = options.cid || '';
+    this.queryParams.query = options.query || '';
     //获取商品列表数据
     this.getGoodsList();
   },

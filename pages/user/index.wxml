@@ -20,19 +20,19 @@
       <view class="history_wrap">
         <navigator class="his_nav">
           <view class="his_num">0</view>
-          <view class="his_name">收藏店铺</view>
+          <view class="his_name">收藏的店铺</view>
+        </navigator>
+        <navigator class="his_nav" url="../collect/index">
+          <view class="his_num">{{collectNum}}</view>
+          <view class="his_name">收藏的商品</view>
+        </navigator>
+        <navigator class="his_nav" >
+          <view class="his_num">0</view>
+          <view class="his_name">关注的商品</view>
         </navigator>
         <navigator class="his_nav">
           <view class="his_num">0</view>
-          <view class="his_name">收藏店铺</view>
-        </navigator>
-        <navigator class="his_nav">
-          <view class="his_num">0</view>
-          <view class="his_name">收藏店铺</view>
-        </navigator>
-        <navigator class="his_nav">
-          <view class="his_num">0</view>
-          <view class="his_name">收藏店铺</view>
+          <view class="his_name">我的足迹</view>
         </navigator>
       </view>
       <!-- 我的订单 -->
@@ -68,9 +68,9 @@
           <text>联系客服</text>
           <text>400-618-4000</text>
         </view>
-        <view class="app_info_item">
+        <navigator class="app_info_item" url="../feedback/index">
           <text>意见反馈</text>
-        </view>
+        </navigator>
         <view class="app_info_item">
           <text>关于我们</text>
         </view>

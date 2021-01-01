@@ -120,6 +120,23 @@
           "pathName": "pages/order/index",
           "query": "type=1",
           "scene": null
+        },
+        {
+          "name": "商品收藏",
+          "pathName": "pages/collect/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "搜索",
+          "pathName": "pages/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "意见反馈",
+          "pathName": "pages/feedback/index",
+          "scene": null
         }
       ]
     }

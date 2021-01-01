@@ -12,7 +12,7 @@
     wx:for="{{swiperList}}"
     wx:key="goods_id"
     >
-      <navigator>
+      <navigator url="{{item.navigator_url}}"> 
         <image 
           mode="widthFix"
           class="swiper_image" 
@@ -26,6 +26,8 @@
     <navigator class="category_nav"
     wx:for="{{categoryList}}"
     wx:key="name"
+    url="../category/index"
+    open-type="switchTab"
     >
     <image
     class="category_image"
@@ -57,7 +59,10 @@
         wx:for="{{item_1.product_list}}"
         wx:key="name"
         wx:for-item="item_2"
-        wx:for-index="index_2">
+        wx:for-index="index_2"
+        url="{{item_2.navigator_url}}"
+        open-type="navigate"
+        >
         <image 
         mode="{{index_2===0?'widthFix':'scaleToFill'}}"
         class="content_image" 

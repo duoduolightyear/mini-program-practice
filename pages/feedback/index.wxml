@@ -1,2 +1,23 @@
-<!--pages/feedback/index.wxml-->
-<text>pages/feedback/index.wxml</text>
+<Tabs tabs="{{tabs}}" binditemChange="handleitemChange">
+  <view class="fb_main">
+    <view class="fb_title">问题的种类</view>
+    <view class="fb_tips">
+      <text class="tips_text">功能建议</text>
+      <text class="tips_text">购买问题</text>
+      <text class="tips_text">性能问题</text>
+      <text class="tips_text">其他</text>
+    </view>
+    <view class="fb_content">
+      <textarea class="fb_text" placeholder="请描述您的问题"></textarea>
+      <view class="fb_tool">
+        <button class="tool_btn">+</button>
+      </view>
+    </view>
+    <view class="form_btn_wrap">
+      <button class="submit_btn" bindtap="handleFormSubmit" type="warn">
+        <icon  type="success_no_circle" size="23" color="white"></icon>
+        提交
+      </button>
+    </view>
+  </view>
+</Tabs>

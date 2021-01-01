@@ -4,22 +4,36 @@ Page({
 
   data: {
     //商品详情
-    goodsDetail: {}
+    goodsDetail: {},
+    //是否被收藏
+    isCollect:false
   },
 
   //商品图片对象
   goodsInfo: {},
 
-  onLoad: function (options) {
+  onShow: function () {
+    //当前页面
+    let pages = getCurrentPages();
+    let currentPage = pages[pages.length-1];
+    let options = currentPage.options
     //参数
     let goods_id = options.goods_id; 
     this.getGoodsDetail(goods_id);
+    
+
   },
+
 
   //获取商品详情数据
   async getGoodsDetail (goods_id) {
     let response = await request({url:'/goods/detail', data: {goods_id}});
+    //商品详情
     this.goodsInfo =  response;
+    //获取缓存中的数组
+    let collect = wx.getStorageSync('collect') || [];
+    //判断商品是否被收藏
+    let isCollect = collect.some(item=>item.goods_id === this.goodsInfo.goods_id);
     this.setData({
       goodsDetail: {
         goods_name: response.goods_name,
@@ -27,7 +41,8 @@ Page({
         goods_introduce: response.goods_introduce.replace(/\.wbp/g,'.jpg'),
         pics: response.pics,
         goods_id: response.goods_id
-      }
+      },
+      isCollect
     })
 
   },
@@ -69,6 +84,44 @@ Page({
       icon: 'success',
       mask: true
     })
+
+  },
+
+  //点击收藏事件
+  handleCollect() {
+    let isCollect = false;
+    //获取缓存
+    let collect = wx.getStorageSync('collect') || [];
+    //判断是否被收藏
+    let index = collect.findIndex(item=>item.goods_id===this.goodsInfo.goods_id);
+    if(index!==-1){
+      //已经收藏，点击取消收藏
+      collect.splice(index, 1);
+      isCollect=false;
+      wx.showToast({
+        title: '取消收藏',
+        icon: 'success',
+        mask: true
+      })
+    } else {
+      //未收藏，点击收藏
+      collect.push(this.goodsInfo);
+      isCollect=true;
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'success',
+        mask: true
+      })
+    }
+    //存入缓存
+    wx.setStorageSync('collect', collect);
+    //修改属性isCollect
+    this.setData({
+      isCollect
+    })
+    
+
+
 
   }
   
